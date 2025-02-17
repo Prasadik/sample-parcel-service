@@ -10,13 +10,13 @@ pipeline {
     stages {
       stage('checkout') {
         steps {
-          sh "sudo rm -rf petclicnicnew"
-          sh "git clone https://github.com/Prasadik/petclicnicnew.git"
+          sh "rm -rf sample-parcel-service"
+          sh "git clone https://github.com/Prasadik/sample-parcel-service.git"
               }      
             }
         stage('build') {
         steps {
-          sh "cd petclicnicnew"
+          sh "cd sample-parcel-service"
           sh "mvn $cmd1 $cmd2"
               }      
             }
