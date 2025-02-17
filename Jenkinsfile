@@ -26,6 +26,13 @@ pipeline {
           sh "mvn $cmd1 $cmd2"
               }      
             }
+
+	    stage('Upload Artifact') {
+            steps {
+                echo 'Uploading artifact...'
+                archiveArtifacts artifacts: 'target/simple-parcel-service-app-1.0-SNAPSHOT.jar', allowEmptyArchive: true
+            }
+        } 
         stage('deploy') {
         steps {
           sh "mvn spring-boot:run"
