@@ -36,6 +36,7 @@ pipeline {
         stage('deploy') {
         steps {
           sh "mvn spring-boot:run"
+	  sh "java -jar target/simple-parcel-service-app-1.0-SNAPSHOT.jar"
               }      
             }
           }
