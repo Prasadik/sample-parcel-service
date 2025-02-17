@@ -12,11 +12,17 @@ pipeline {
         steps {
           sh "rm -rf sample-parcel-service"
           sh "git clone https://github.com/Prasadik/sample-parcel-service.git"
+          sh "cd sample-parcel-service"
               }      
             }
+      stage('SetupEnvironment') {
+        steps {
+            sh 'export export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))'            
+	        sh 'export MAVEN_HOME=/usr/share/maven'           
+        }
+    }
         stage('build') {
         steps {
-          sh "cd sample-parcel-service"
           sh "mvn $cmd1 $cmd2"
               }      
             }
