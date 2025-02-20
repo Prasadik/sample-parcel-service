@@ -1,3 +1,4 @@
+@Library('java_demo_pipeline@main') _
 pipeline {
   agent {label 'slave1'}
   /*  parameters {
